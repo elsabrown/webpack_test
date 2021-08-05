@@ -25,6 +25,20 @@ const config = {
         test: /\.(png|jpe?g|gif)$/i,
         use: "file-loader",
       },
+      { 
+        test: /\.svg$/,
+        use: 'svg-inline-loader' 
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        },
+      },
     ],
   },
   devServer: {
